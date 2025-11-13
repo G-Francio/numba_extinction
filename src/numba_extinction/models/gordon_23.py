@@ -247,7 +247,7 @@ def compute_exctinction(wave, a_v, r_v):
 @nb.jit(parallel=True)
 def compute_exctinction_many(wave, a_v, r_v):
     out = np.empty(wave.shape, dtype=np.float64)
-    for i in nb.prange(wave.shape[0]):
+    for i in range(wave.shape[0]):
         out[i] = compute_exctinction(wave[i], a_v[i], r_v)
 
     return out
